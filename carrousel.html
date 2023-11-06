@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="ui/css/carrousel.css">
+</head>
+<body>
+    <!-- Script javaScript -->
+   <script>
+    var images = ['un.png','deux.png','trois.png','quatre.png','cinq.png'];
+    const titre = ['titre 1','titre 2','titre 3'];
+    var nbIma = images.length; // nombre d'images dans le tableau images
+
+    $('body').append(`<h1>${titre[Math.floor(Math.random()*3)]}</h1>`)
+    const chemin = './images/';
+    var compteur = 0; // init compteur
+   
+    $('body').append('<ul></ul>');
+
+    for (j in images) {
+        $('ul').append(`<li><img src="${chemin}${images[j]}"></li>`)
+    }
+    
+
+    $('li').eq(0).css('opacity','1'); // afficher première image
+    
+    $('li').on('click',function() {
+        console.log(compteur);
+        $('li').eq(compteur).css('opacity','0');
+        $('li').eq(compteur+1).css('opacity','1');
+        compteur = (compteur < nbIma - 1) ? compteur + 1 : (function() {
+            $('li').eq(0).css('opacity', '1');
+            return compteur = 0
+        })();
+        
+    })
+    
+   
+   </script> 
+</body>
+</html>
