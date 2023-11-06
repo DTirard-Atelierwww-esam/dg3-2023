@@ -20,8 +20,6 @@
     <button id="clearStorage">Effacer les checkBoxes</button>
 
     <script>
-
-
     let listeElements = $('#ma-liste li');
 
     listeElements.on('click', function() {
@@ -32,7 +30,6 @@
 
     listeElements.each(function() {
         (localStorage.getItem($(this).index()) === 'done') && $(this).addClass('done');
-
     });
 
     $('#clearStorage').on('click', function() {
@@ -40,44 +37,6 @@
         location.reload(); // recharger la page
     })
 
-
-
-
     </script>
-
-    <!-- <script>
-        // tester si le programme est initialisé,
-        // ajouter la première fois la classe none aux différens li
-        if(localStorage.getItem('init') !== 'OK') {
-            init();
-        } else {
-            for (var i = 0 ; i < $('ul').children().length ;  i++) {
-                // récupérer la classe <- localStorage
-                $('li').eq(i).addClass(localStorage.getItem(i));
-            } 
-        }
-
-        // sélection d'un item de la liste
-        $('li').on('click', function () {
-                $(this).addClass('done');
-                console.log($(this).index());
-                localStorage.setItem($(this).index(),'done');
-            })
-
-
-        /**
-         * fonction init()
-         * mémoriser dans localStorage 'none'
-         */
-        function init() {
-            console.log('initialisation');
-            localStorage.setItem('init','OK');
-            for (var i=0;i< $('ul').children().length;i++) {
-                localStorage.setItem(i,'none'); // enregistrer la classe none -> localStorage
-                $('li').eq(i).addClass(localStorage.getItem(i)); // ajouter la classe none
-            }
-        }
-    </script> -->
-    
 </body>
 </html>
