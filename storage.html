@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage gitHub</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="ui/css/storage.css">
+</head>
+<body>
+    <ul id="ma-liste">
+        <li><a href="storageSuite.html">un</a></li>
+        <li>deux</li>
+        <li>trois</li>
+    </ul>
+    <ul>
+        <li>Quatre</li>
+        <li>Cinq</li>
+    </ul>
+    <button id="clearStorage">Effacer les checkBoxes</button>
+
+    <script>
+
+
+    let listeElements = $('#ma-liste li');
+
+    listeElements.on('click', function() {
+        $(this).addClass('done');
+        localStorage.setItem($(this).index(), 'done');
+    });
+
+
+    listeElements.each(function() {
+        (localStorage.getItem($(this).index()) === 'done') && $(this).addClass('done');
+
+    });
+
+    $('#clearStorage').on('click', function() {
+        localStorage.clear(); // effacer les Storages
+        location.reload(); // recharger la page
+    })
+
+
+
+
+    </script>
+
+    <!-- <script>
+        // tester si le programme est initialisé,
+        // ajouter la première fois la classe none aux différens li
+        if(localStorage.getItem('init') !== 'OK') {
+            init();
+        } else {
+            for (var i = 0 ; i < $('ul').children().length ;  i++) {
+                // récupérer la classe <- localStorage
+                $('li').eq(i).addClass(localStorage.getItem(i));
+            } 
+        }
+
+        // sélection d'un item de la liste
+        $('li').on('click', function () {
+                $(this).addClass('done');
+                console.log($(this).index());
+                localStorage.setItem($(this).index(),'done');
+            })
+
+
+        /**
+         * fonction init()
+         * mémoriser dans localStorage 'none'
+         */
+        function init() {
+            console.log('initialisation');
+            localStorage.setItem('init','OK');
+            for (var i=0;i< $('ul').children().length;i++) {
+                localStorage.setItem(i,'none'); // enregistrer la classe none -> localStorage
+                $('li').eq(i).addClass(localStorage.getItem(i)); // ajouter la classe none
+            }
+        }
+    </script> -->
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+a {
+    text-decoration: none;
+    color: rgb(0 0 0);
+}
+
+ul {
+    list-style: none;
+}
+.none {
+    list-style-type: none;
+}
+.done {
+    list-style-image: url('../imagesHabillage/checkBox.png');
+}  
+
+#clearStorage {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
